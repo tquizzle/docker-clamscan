@@ -3,7 +3,7 @@ LABEL maintainer="Travis Quinnelly <t.quinnelly@gmail.com>"
 
 RUN yum upgrade -y \
     && yum -y install epel-release \
-    && yum install clamav -y
+    && yum -y install clamav
 
 ENV SCANDIR=/scan
 COPY scan.sh /scan.sh
