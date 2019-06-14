@@ -8,6 +8,7 @@ It will always update the ClamAV Database, by using the standard `freshclam` bef
 ## How-To
 Using this image is fairly straightforward, but here goes an attempt at documenting what I did.
 
+Pay attention to `-v /path/to/scan` as this is the mounted directory that this docker image will scan.
 
 ### Interactive
 
@@ -15,7 +16,7 @@ Using this image is fairly straightforward, but here goes an attempt at document
 docker run -it \
   -v clamav-db:/var/lib/clamav \
   -v /path/to/scan:/scan:ro \
-  clamtq:latest -i
+  tquinnelly/clamav:latest -i
 ```
 
 ### Daemonized
@@ -24,14 +25,14 @@ docker run -it \
 docker run -it -d \
   -v clamav-db:/var/lib/clamav \
   -v /path/to/scan:/scan:ro \
-  clamtq:latest -i
+  tquinnelly/clamav:latest -i
 ```
 
 
 ## Expected Output
 
 ```
-# docker run -it -v clamav-db:/var/lib/clamav -v /opt:/scan:ro clamtq -i
+# docker run -it -v clamav-db:/var/lib/clamav -v /opt:/scan:ro tquinnelly/clamav:latest -i
 2019-06-13T23:11+0000 ClamAV scanning started
 Updating ClamAV scan DB
 ClamAV update process started at Thu Jun 13 23:11:48 2019
@@ -55,4 +56,5 @@ Data scanned: 2315.83 MB
 Data read: 7582.24 MB (ratio 0.31:1)
 Time: 883.476 sec (14 m 43 s)
 2019-06-13T23:27+0000 ClamAV scanning finished
+# 
 ```
