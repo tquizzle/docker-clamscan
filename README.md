@@ -4,9 +4,10 @@ This image allows you a very simple way to scan a mounted filesystem using `clam
 
 It will always update the ClamAV Database, by using the standard `freshclam` before running `clamscan`.
 
+It is essentially, my centos version of [batmat's image](https://github.com/batmat/docker-clamscan)
 
 ## How-To
-Using this image is fairly straightforward, but here goes an attempt at documenting what I did.
+Using this image is fairly straightforward.
 
 Pay attention to `-v /path/to/scan` as this is the mounted directory that this docker image will scan.
 
@@ -16,7 +17,7 @@ Pay attention to `-v /path/to/scan` as this is the mounted directory that this d
 docker run -it \
   -v clamav-db:/var/lib/clamav \
   -v /path/to/scan:/scan:ro \
-  tquinnelly/clamav:latest -i
+  tquinnelly/clamav -i
 ```
 
 ### Daemonized
@@ -25,14 +26,14 @@ docker run -it \
 docker run -it -d \
   -v clamav-db:/var/lib/clamav \
   -v /path/to/scan:/scan:ro \
-  tquinnelly/clamav:latest -i
+  tquinnelly/clamav -i
 ```
 
 
 ## Expected Output
 
 ```
-# docker run -it -v clamav-db:/var/lib/clamav -v /opt:/scan:ro tquinnelly/clamav:latest -i
+# docker run -it -v clamav-db:/var/lib/clamav -v /opt:/scan:ro tquinnelly/clamav -i
 2019-06-13T23:11+0000 ClamAV scanning started
 Updating ClamAV scan DB
 ClamAV update process started at Thu Jun 13 23:11:48 2019
