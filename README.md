@@ -20,16 +20,6 @@ docker run -it \
   tquinnelly/clamav -i
 ```
 
-### Daemonized
-
-```
-docker run -it -d \
-  -v clamav-db:/var/lib/clamav \
-  -v /path/to/scan:/scan:ro \
-  tquinnelly/clamav -i
-```
-
-
 ## Expected Output
 
 ```
