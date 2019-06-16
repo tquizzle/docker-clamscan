@@ -9,21 +9,27 @@ It is essentially, my centos version of [batmat's image](https://github.com/batm
 ## How-To
 Using this image is fairly straightforward.
 
-Pay attention to `-v /path/to/scan` as this is the mounted directory that this docker image will scan.
+### Info
+* Pay attention to `-v /path/to/scan` as this is the mounted directory that this docker image will scan.
+* This container only runs once, then exits with the expected output below. If you want to scan again, you can simply start the container, it will update itself and start scanning.
 
-### Interactive
+### Running the container
 
 ```
-docker run -it \
+docker run -it --name ClamAV \
   -v clamav-db:/var/lib/clamav \
   -v /path/to/scan:/scan:ro \
   tquinnelly/clamav -i
 ```
+#### Explanations
+
+
+
 
 ## Expected Output
 
 ```
-# docker run -it -v clamav-db:/var/lib/clamav -v /opt:/scan:ro tquinnelly/clamav -i
+# docker run -it --name ClamAV -v clamav-db:/var/lib/clamav -v /opt:/scan:ro tquinnelly/clamav -i
 2019-06-13T23:11+0000 ClamAV scanning started
 Updating ClamAV scan DB
 ClamAV update process started at Thu Jun 13 23:11:48 2019
