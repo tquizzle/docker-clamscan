@@ -6,6 +6,8 @@ It will always update the ClamAV Database, by using the standard `freshclam` bef
 
 It is essentially, my centos version of [batmat's image](https://github.com/batmat/docker-clamscan)
 
+![Docker Pulls](https://img.shields.io/docker/pulls/tquinnelly/clamav.svg?style=for-the-badge)
+
 ## How-To
 Using this image is fairly straightforward.
 
