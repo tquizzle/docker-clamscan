@@ -9,9 +9,8 @@ It is essentially, my centos version of [batmat's image](https://github.com/batm
 ![Docker Pulls](https://img.shields.io/docker/pulls/tquinnelly/clamav.svg?style=for-the-badge)
 
 ## How-To
-Using this image is fairly straightforward.
+Using this image is fairly straightforward. There are just a couple of things to keep in mind.
 
-### Info
 * Pay attention to `-v /path/to/scan` as this is the mounted directory that this docker image will scan.
 * This container only runs once, then exits with the expected output below. If you want to scan again, you can simply start the container, it will update itself and start scanning.
 
@@ -23,10 +22,6 @@ docker run -it --name ClamAV \
   -v /path/to/scan:/scan:ro \
   tquinnelly/clamav -i
 ```
-#### Explanations
-
-
-
 
 ## Expected Output
 
